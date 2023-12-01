@@ -37,13 +37,12 @@ const appRoutes = [
 		path: '',
 		element: <App />,
 		children: [
-			{ path: '/landing/*', element: <>landing!</> },
             { path: '/calls/*', element: <CallsRoute /> },
 			{ path: '/specialist/*', element: <SpecialistRoute /> },
 			{ path: '/problems/*', element: <ProblemsRoute /> },
 			{
 				path: '',
-				element: <Navigate to="/landing/*" />,
+				element: <Navigate to="/calls/*" />,
 			},
 		],
 	},
