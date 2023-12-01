@@ -1,0 +1,28 @@
+{
+	"tabWidth": 4,
+	"printWidth": 120,
+	"singleQuote": true,
+	"trailingComma": "es5",
+	"arrowParens": "avoid",
+	"semi": true,
+	"bracketSpacing": true,
+	"useTabs": true,
+	"endOfLine": "lf",
+	"overrides": [
+		{
+			"files": "packages/admin-desktop-web-application/src/**/*.{ts,tsx}",
+			"options": {
+				"jsxSingleQuote": true
+			}
+		},
+		{
+			"files": "packages/mobile-web-application/src/**/*.{ts,tsx}",
+			"options": {
+				"jsxSingleQuote": true
+			}
+		},
+		{
+			"files": "packages/server/src/**/**.ts"
+		}
+	]
+}
