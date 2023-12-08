@@ -17,9 +17,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.post('/', (req, res) => {
-  res.send('Hello World!')
-})
 
 // use express routing
 app.use('/api', Routes);
@@ -28,4 +25,8 @@ app.listen(port, () => {
   console.log(`App listening on port ${port}`);
   // get from env file
   connectSql()
+  // executeQuery('SELECT * FROM `employee`',
+  //   function(err, results) {
+  //     console.log(results)
+  // })
 })

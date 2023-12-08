@@ -1,6 +1,6 @@
 import { VStack, Flex, Text, Spacer } from '@chakra-ui/react'
 import { SpecialistsTable } from '../components/SpecialistTable'
-import { NewSpecialistModal } from '../components/NewSpecialistModal'
+// import { NewSpecialistModal } from '../components/NewSpecialistModal'
 
 export const SpecialistRoute = () => {
   return (
@@ -11,7 +11,7 @@ export const SpecialistRoute = () => {
             <Text variant="topic_description">View specialists</Text>
         </VStack>
         <Spacer />
-        <NewSpecialistModal />
+        {/* <NewSpecialistModal /> */}
       </Flex>
       <Flex flexDir="column" w="100%" mt="8px">
           <SpecialistsTable />

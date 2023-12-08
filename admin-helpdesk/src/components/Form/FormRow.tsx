@@ -6,9 +6,10 @@ interface ICallerFormRow {
     required?: boolean
     labelW?: string;
     inputW?: string;
+    onChange?: (e: any) => void
 }
 
-export const FormRow = ({ placeholder, label, required, labelW, inputW } : ICallerFormRow) => {
+export const FormRow = ({ placeholder, label, required, labelW, inputW, onChange } : ICallerFormRow) => {
     return (
     <Flex w="100%" alignItems="center" justifyContent="center">
         <Flex w={labelW ? labelW : "35%"}>
@@ -17,7 +18,7 @@ export const FormRow = ({ placeholder, label, required, labelW, inputW } : ICall
             </Text>
          </Flex>
         <Flex w={inputW ? inputW : "65%"}>
-            <Input w="264px" placeholder={placeholder} />
+            <Input w="264px" onChange={onChange} placeholder={placeholder} />
         </Flex>
     </Flex>
   )

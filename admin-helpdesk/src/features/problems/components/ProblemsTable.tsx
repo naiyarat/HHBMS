@@ -1,17 +1,29 @@
-import { Button, Table, TableContainer, Tbody, Td, Th, Thead, Tr, Text, Icon, Flex } from '@chakra-ui/react'
-import { BiPencil } from "react-icons/bi";
+import { Table, TableContainer, Tbody, Td, Th, Thead, Tr, Text, Flex, Center } from '@chakra-ui/react'
+import { convertResolutionTime } from '../utils/convertResolutionTime';
+import { AddSolutionModal } from './AddSolutionModal';
+import { EditSubcatModal } from './EditSubcatModal';
 
 const tableHeaders = [
     'Id',
     'Topic',
-    'Category/Subcategory',
+    'Subcategory',
     'Equipment Serial No.',
     'Resolution Time',
     'Specialist',
     'Solution',
 ]
 
-export const ProblemsTable = () => {
+export type TProblemRow = {
+  id: number;
+  topic: string;
+  subcategory: string;
+  equipmentSerialNo: string;
+  resolutionTime?: number;
+  specialist?: string;
+  solution?: string;
+}
+
+export const ProblemsTable = ({ data } : { data: TProblemRow[] }) => {
   return (
     <TableContainer style={{ borderRadius: '12px', boxShadow: '1px 1px 5px #999' }}>
         <Table variant="primary">
@@ -23,38 +35,60 @@ export const ProblemsTable = () => {
                   </Tr>
             </Thead>
               <Tbody>
-                <Tr>
-                  <Td>1</Td>
-                  <Td>Mac broke</Td>
-                  <Td>
-                    <Flex alignItems="center">
-                      <Text variant="paragraph">
-                        Equipment failure/CPU outdated
-                      </Text>
-                      <Button variant="link_primary" p="0">
-                        <Icon boxSize="24px" as={BiPencil} ml="8px" />
-                      </Button>
-                    </Flex>
-                  </Td>
-                  <Td>12345</Td>
-                  <Td>2 hours</Td>
-                  <Td>Doraemon</Td>
-        
-                  <Td>Replaced CPU</Td>
-                </Tr>
-                 <Tr>
-                    <Td>2</Td>
-                    <Td>Mac broke</Td>
-                    <Td>Equipment failure/CPU outdated</Td>
-                    <Td>12345</Td>
-                    <Td>2 hours</Td>
-                    <Td>Doraemon</Td>
-                    <Td>
-                      <Button variant="link_primary">
-                        + Add Solution
-                      </Button>
+                {data.length > 0 ? data.map((row: TProblemRow) => (
+                   <Tr key={row.id}>
+                          <Td>
+                            <Text>
+                              {row.id}
+                            </Text>                          
+                          </Td>
+                          <Td>
+                            <Text>
+                              {row.topic}
+                            </Text>                          
+                          </Td>
+                          <Td>
+                            <Flex alignItems="center">
+                              <Text>
+                                {row.subcategory}
+                              </Text>   
+                              <EditSubcatModal id={row.id}/>
+                            </Flex>
+                          </Td>
+                          <Td>
+                            <Text>
+                              {row.equipmentSerialNo}
+                            </Text>                          
+                          </Td>
+                          <Td>
+                            <Text>
+                              {row.resolutionTime ? convertResolutionTime(row.resolutionTime) : "-"}
+                            </Text>                          
+                          </Td>
+                          <Td>
+                            <Text>
+                              {row.specialist || '-'}
+                            </Text>                          
+                          </Td>
+                          <Td>
+                            <Text>
+                              {row.solution || (
+                                <AddSolutionModal id={row.id} />
+                              )}
+                            </Text>                          
+                          </Td>
+                    </Tr>
+                )) : (
+                  <Tr>
+                    <Td colSpan={8}>
+                      <Center>
+                        <Text variant="paragraph">
+                          No data found :(
+                        </Text> 
+                      </Center>
                     </Td>
-                </Tr>
+                  </Tr>
+                )}
             </Tbody>
         </Table>
     </TableContainer>

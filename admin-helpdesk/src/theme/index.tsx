@@ -3,13 +3,15 @@ import Text from './text';
 import Tabs from './tabs';
 import Button from './button';
 import Table from './table';
+import Datepicker from './datepicker';
 
 const overrides = {
 	components: {
 		Text,
 		Tabs,
 		Button,
-		Table
+		Table,
+		Datepicker
 	},
 };
 

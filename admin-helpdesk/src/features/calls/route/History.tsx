@@ -5,7 +5,7 @@ import { HistoryTable } from '../components/HistoryTable'
 export const History = () => {
   return (
     <Flex flexDir="column" w="100%">
-          <HistoryTable />
+        <HistoryTable />
     </Flex>
   )
 }

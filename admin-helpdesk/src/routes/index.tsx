@@ -42,7 +42,7 @@ const appRoutes = [
 			{ path: '/problems/*', element: <ProblemsRoute /> },
 			{
 				path: '',
-				element: <Navigate to="/calls/*" />,
+				element: <Navigate to="/calls/list" />,
 			},
 		],
 	},

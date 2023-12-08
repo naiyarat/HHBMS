@@ -3,8 +3,7 @@ import { FormModal } from 'components/Modal/FormModal';
 import { FiPlus } from 'react-icons/fi';
 import { FormRow } from '../../../components/Form/FormRow';
 
-export const NewSpecialistModal = () => {
-    
+export const NewSpecialistModal = () => { 
     return (
         <FormModal
             w="35rem"

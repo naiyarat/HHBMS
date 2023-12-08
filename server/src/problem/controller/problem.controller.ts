@@ -14,4 +14,18 @@ export class ProblemController {
         }
         return response.status(200).json(res);
     };
+    addSolution = async (req: Request, response: Response) => {
+        const res = await this.problemService.addSolution(req.body);
+        if (res instanceof Error) {
+            return response.status(500).json({ res });
+        }
+        return response.status(200).json(res);
+    }; 
+    editSubcategory = async (req: Request, response: Response) => {
+        const res = await this.problemService.editSubcategory(req.body);
+        if (res instanceof Error) {
+            return response.status(500).json({ res });
+        }
+        return response.status(200).json(res);
+    }; 
 }

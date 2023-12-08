@@ -7,5 +7,7 @@ const newProblemController = new ProblemController(new ProblemDBImpl());
 const router: Router = Router();
 
 router.route('/getAll').get(newProblemController.getAllProblems)
+router.route('/editSubcategory').patch(newProblemController.editSubcategory)
+router.route('/addSolution').post(newProblemController.addSolution)
 
 export default router;
