@@ -5,7 +5,6 @@ import { CreateCategoryRequest } from "@src/category/dto/category.dto.mutation";
 
 export class CategoryDBImpl implements CategoryDB {
     async create(req: CreateCategoryRequest): Promise<number | Error> {
-        console.log(req)
         const mutation = `
             INSERT INTO category (
                 name,

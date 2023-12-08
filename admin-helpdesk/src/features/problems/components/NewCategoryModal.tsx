@@ -31,7 +31,6 @@ export const NewCategoryModal = () => {
     })
     
     const onSubmit: SubmitHandler<CreateWithSubcat> = async (data) => {
-        console.log(data)
         return await createWithSubcat.mutateAsync(data);
     }
 
