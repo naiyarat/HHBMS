@@ -64,7 +64,7 @@ export const NewCategoryModal = () => {
                     Create a New Category
                 </Text>
             }
-            isDone={false}
+            isDone={createWithSubcat.isSuccess}
         >
             <FormProvider {...formMethods}>
                 <form onSubmit={formMethods.handleSubmit(onSubmit)} id={formId}>

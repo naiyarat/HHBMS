@@ -14,6 +14,7 @@ export class CallCreationUsecaseImpl implements CallCreationUsecase {
     async createCallWithProblem(req: CreateCallWithProblemRequest): Promise<Error | number> {
         let problemPk: number = 0;
         let callPk: number = 0;
+        console.log(req)
         await startTransaction(async () => {
             if (!('id' in req.problem)) {
                 const problemRes = req.problem && await this.problemService.create({

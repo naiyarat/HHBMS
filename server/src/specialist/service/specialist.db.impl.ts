@@ -27,7 +27,6 @@ export class SpecialistDBImpl implements SpecialistDB {
             LEFT JOIN category ON subcategory.category = category.id
             GROUP BY specialist.id, specialist.employee, employee.id, employee.name;
         `;
-
         try {
             const res = await new Promise<Query>((resolve, reject) => {
                 executeQuery(query, function(err, res) {

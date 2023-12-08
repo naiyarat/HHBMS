@@ -34,7 +34,6 @@ const schema = z.object({
                 specialist: z.number().optional(),
         })
     ),
-
 });
 type CreateCall = z.infer<typeof schema>
 
